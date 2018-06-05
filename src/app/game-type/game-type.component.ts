@@ -19,6 +19,7 @@ export class GameTypeComponent implements OnInit {
     this.subscription = this.activateRoute.params.subscribe(params=> {
       this.id=params['id'];
       this.type=params['type'];
+      console.log(this.type)
       this.infoMas = listOfApp.filter(a => a[this.type].toLowerCase().indexOf(this.id) >= 0);
     });
   }

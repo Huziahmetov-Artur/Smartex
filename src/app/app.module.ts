@@ -7,13 +7,15 @@ import { ListComponent } from './list/list.component';
 import {HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule } from './/app-routing.module';
 import { GameTypeComponent } from './game-type/game-type.component';
+import { AppPageComponent } from './app-page/app-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ListComponent,
-    GameTypeComponent
+    GameTypeComponent,
+    AppPageComponent
   ],
   imports: [
     BrowserModule,

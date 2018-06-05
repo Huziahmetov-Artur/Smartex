@@ -1,0 +1,35 @@
+*{
+  outline: none;
+}
+.oneApp{
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 30px;
+  background: white;
+  width: 700px;
+  border-radius: 20px;
+}
+img{
+  height: 400px;
+  width: 400px;
+  border-radius: 20px;
+}
+h1,p,li{
+  margin: 2px;
+}
+button{
+  margin: 20px;
+  border-radius: 28px;
+  color: #1f071f;
+  font-size: 27px;
+  background: #cad9e3;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+button:hover {
+  background: #c0e5fc;
+  text-decoration: none;
+}
