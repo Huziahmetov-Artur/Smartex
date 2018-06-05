@@ -1,0 +1,16 @@
+<div class="sortButton">
+  <h1>Sort by :</h1>
+  <button >Name</button>
+  <button >Rating</button>
+  <button >Type</button>
+  <button >Size</button>
+  <button >Version</button>
+</div>
+<div class="gamePage">
+
+  <div *ngFor="let App of infoMas" class="gameBlock" routerLink="/game/{{App.app_short | lowercase }}">
+    <img src="{{App.url}}">
+    <h2>{{App.app_name}}</h2>
+    <p>✩ {{App.all_rating}}</p>
+  </div>
+</div>
