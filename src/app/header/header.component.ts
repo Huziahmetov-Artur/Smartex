@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {GetService} from "../service/get.service";
+import {listOfApp} from "../store/ListMas";
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public GetService: GetService) { }
 
   ngOnInit() {
+    this.GetService.getApi().subscribe(res => {
+      listOfApp.push(...res);
+    });
   }
 
 }
