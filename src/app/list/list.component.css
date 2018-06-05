@@ -16,9 +16,29 @@ h2,p{
   margin: 2px;
 }
 img{
+  margin-top: 10px;
+}
+.normal{
   height: 150px;
   width: 150px;
   border-radius: 10px;
+}
+.small{
+  height: 100px;
+  width: 100px;
+}
+.big{
+  height: 170px;
+  width: 170px;
+}
+.blue{
+  background: aqua;
+}
+.purple{
+  background: blueviolet;
+}
+.white{
+  background: white;
 }
 .gamePage{
   display: flex;
@@ -26,7 +46,7 @@ img{
   flex-wrap: wrap;
   height: 350px;
 }
-.sortButton{
+.sortButton,.changeImg,.changeBack{
   display: flex;
   margin-left: 70px;
 }

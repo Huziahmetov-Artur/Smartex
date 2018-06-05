@@ -10,6 +10,7 @@ import { GameTypeComponent } from './game-type/game-type.component';
 import { AppPageComponent } from './app-page/app-page.component';
 import {FormsModule} from "@angular/forms";
 import { NotFoundComponent } from './not-found/not-found.component';
+import { UserAccountComponent } from './user-account/user-account.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ListComponent,
     GameTypeComponent,
     AppPageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UserAccountComponent
   ],
   imports: [
     BrowserModule,

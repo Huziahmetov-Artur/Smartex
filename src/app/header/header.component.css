@@ -6,6 +6,15 @@ header{
   justify-content: space-between;
   align-items: center;
 }
+button{
+  margin: 20px;
+  border-radius: 15px;
+  color: #1f071f;
+  font-size: 20px;
+  background: #cad9e3;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
 img{
   height: 70px;
   width: auto;
@@ -15,12 +24,70 @@ input[type = "search"]{
   width: 700px;
   font-size: 30px;
 }
-ul{
+.submenu{
+  width: 200px;
   display: flex;
-  width: 600px;
+  justify-content: center;
 }
-li{
+.categories{
+  display: none;
+  position: absolute;
   width: 150px;
-  font-size: 30px;
+  margin-top: 60px;
+  border-radius: 20px;
+}
+.categories > li{
+  width: 50px;
+  font-size: 20px;
   list-style-type: none;
+}
+.submenu:hover > .categories{
+  display: block;
+  background: white;
+}
+
+@media screen and (max-width: 1200px){
+  input[type = "search"]{
+    height: 50px;
+    width: 300px;
+    font-size: 30px;
+  }
+  h1{
+    font-size: 20px;
+  }
+  .submenu{
+    width: 100px;
+  }
+  .categories{
+    width: 50px;
+    margin-top: 40px;
+  }
+  .categories > li{
+    width: 30px;
+    margin-left: -30px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 1000px){
+  input[type = "search"]{
+    height: 50px;
+    width: 200px;
+    font-size: 30px;
+  }
+  h1{
+    font-size: 20px;
+  }
+  .submenu{
+    width: 100px;
+  }
+  .categories{
+    width: 50px;
+    margin-top: 40px;
+  }
+  .categories > li{
+    width: 30px;
+    margin-left: -30px;
+    font-size: 18px;
+  }
 }

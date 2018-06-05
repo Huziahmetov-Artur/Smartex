@@ -6,10 +6,22 @@
   <button (click)="change('file_size')">Size</button>
   <button (click)="change('version')">Version</button>
 </div>
+<div class="changeImg" *ngIf="admin.admin">
+  <h1>Size:</h1>
+  <button (click)="changeSizeImg('small')">Small</button>
+  <button (click)="changeSizeImg('normal')">Normal</button>
+  <button (click)="changeSizeImg('big')">Big</button>
+</div>
+<div class="changeBack" *ngIf="admin.admin">
+  <h1>Size:</h1>
+  <button (click)="changeBackImg('white')">White</button>
+  <button (click)="changeBackImg('blue')">Blue</button>
+  <button (click)="changeBackImg('purple')">Perple</button>
+</div>
 <div class="gamePage">
 
-  <div *ngFor="let App of infoMas" class="gameBlock" routerLink="/game/{{App.app_short | lowercase }}">
-    <img src="{{App.url}}">
+  <div *ngFor="let App of infoMas" class="gameBlock {{imgBackground}}" routerLink="/game/{{App.app_short | lowercase }}">
+    <img src="{{App.url}}" class="{{sizeImg}}">
     <h2>{{App.app_name}}</h2>
     <p>✩ {{App.all_rating}}</p>
   </div>

@@ -12,7 +12,6 @@ export class GetService {
     return this.http.get<any[]>('./assets/info.json');
   }
   sortMas(mas, typee ) {
-
     mas.sort(function (a, b) {
       if (a[typee] > b[typee]) {
         return 1;
@@ -23,4 +22,6 @@ export class GetService {
       return 0;
     });
   }
+
+
 }

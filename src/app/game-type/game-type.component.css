@@ -13,6 +13,7 @@ h2,p{
   margin: 2px;
 }
 img{
+  margin-top: 10px;
   height: 150px;
   width: 150px;
   border-radius: 10px;
@@ -23,8 +24,9 @@ img{
   flex-wrap: wrap;
   height: 350px;
 }
-.sortButton{
+.sortButton,.changeImg,.changeBack{
   display: flex;
+  margin-left: 70px;
 }
 button{
   margin: 20px;
@@ -34,4 +36,26 @@ button{
   background: #cad9e3;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
+}
+.normal{
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+}
+.small{
+  height: 100px;
+  width: 100px;
+}
+.big{
+  height: 170px;
+  width: 170px;
+}
+.blue{
+  background: aqua;
+}
+.purple{
+  background: blueviolet;
+}
+.white{
+  background: white;
 }

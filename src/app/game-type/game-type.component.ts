@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GetService} from "../service/get.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {listOfApp} from "../store/ListMas";
+import {listOfApp, userInfo} from "../store/ListMas";
 
 @Component({
   selector: 'app-game-type',
@@ -15,6 +15,9 @@ export class GameTypeComponent implements OnInit {
   id;
   type;
   subscription;
+  sizeImg = 'normal';
+  admin = userInfo;
+  imgBackground = 'white'
   constructor(public GetService : GetService,private activateRoute: ActivatedRoute,private router : Router) {
     this.subscription = this.activateRoute.params.subscribe(params=> {
       this.id=params['id'];
@@ -39,7 +42,13 @@ export class GameTypeComponent implements OnInit {
       }
     });
   }
+  changeSizeImg(size){
+    this.sizeImg = size;
+  }
+  changeBackImg(color){
+    this.imgBackground = color;
+  }
   change(type) {
-    this.GetService.sortMas(listOfApp, type )
+    this.GetService.sortMas(this.infoMas, type )
   }
 }

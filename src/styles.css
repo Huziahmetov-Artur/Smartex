@@ -1,4 +1,6 @@
-
+body{
+  background: url("./assets/background_opcion2.jpg");
+}
 
 .root{
   display: flex;
