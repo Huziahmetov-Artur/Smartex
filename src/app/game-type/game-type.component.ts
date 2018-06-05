@@ -39,4 +39,7 @@ export class GameTypeComponent implements OnInit {
       }
     });
   }
+  change(type) {
+    this.GetService.sortMas(listOfApp, type )
+  }
 }

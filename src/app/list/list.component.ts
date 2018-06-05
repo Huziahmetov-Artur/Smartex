@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {listOfApp} from "../store/ListMas";
+import {GetService} from "../service/get.service";
 
 @Component({
   selector: 'app-list',
@@ -10,9 +11,11 @@ export class ListComponent implements OnInit {
 
   user = listOfApp;
 
-  constructor() { }
+  constructor(public GetService : GetService) { }
 
   ngOnInit() {
   }
-
+  change(type) {
+    this.GetService.sortMas(listOfApp, type )
+  }
 }

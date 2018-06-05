@@ -1,10 +1,10 @@
 <div class="sortButton">
   <h1>Sort by :</h1>
-  <button >Name</button>
-  <button >Rating</button>
-  <button >Type</button>
-  <button >Size</button>
-  <button >Version</button>
+  <button (click)="change('app_name')">Name</button>
+  <button (click)="change('all_rating')">Rating</button>
+  <button (click)="change('all_type')">Type</button>
+  <button (click)="change('file_size')">Size</button>
+  <button (click)="change('version')">Version</button>
 </div>
 <div class="gamePage">
   <div *ngFor="let App of user" class="gameBlock" routerLink="game/{{App.app_short | lowercase }}">

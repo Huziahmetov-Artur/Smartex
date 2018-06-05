@@ -8,6 +8,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule } from './/app-routing.module';
 import { GameTypeComponent } from './game-type/game-type.component';
 import { AppPageComponent } from './app-page/app-page.component';
+import {FormsModule} from "@angular/forms";
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { AppPageComponent } from './app-page/app-page.component';
     HeaderComponent,
     ListComponent,
     GameTypeComponent,
-    AppPageComponent
+    AppPageComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

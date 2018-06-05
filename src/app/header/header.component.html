@@ -1,7 +1,7 @@
 <header>
   <img src="https://www.ixbt.com/short/images/2017/Sep/google_play_logo_2015-630x247.png"
        routerLink="">
-  <input type="search">
+  <input type="search" [(ngModel)]="searchVar" (change)="search()">
 
   <ul class="categories">
     <li class="Action" routerLink="type/action">Action</li>
