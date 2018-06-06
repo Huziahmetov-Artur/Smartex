@@ -6,7 +6,7 @@ header{
   justify-content: space-between;
   align-items: center;
 }
-button{
+.header__button{
   margin: 20px;
   border-radius: 15px;
   color: #1f071f;
@@ -15,54 +15,54 @@ button{
   padding: 10px 20px 10px 20px;
   text-decoration: none;
 }
-img{
+.header__img{
   height: 70px;
   width: auto;
 }
-input[type = "search"]{
+.header__input{
   height: 50px;
   width: 700px;
   font-size: 30px;
 }
-.submenu{
+.header__div_submenu{
   width: 200px;
   display: flex;
   justify-content: center;
 }
-.categories{
+.header__div_categories {
   display: none;
   position: absolute;
   width: 150px;
   margin-top: 60px;
   border-radius: 20px;
 }
-.categories > li{
+.header__div_categories > li{
   width: 50px;
   font-size: 20px;
   list-style-type: none;
 }
-.submenu:hover > .categories{
+.header__div_submenu:hover > .header__div_categories{
   display: block;
   background: white;
 }
 
 @media screen and (max-width: 1200px){
-  input[type = "search"]{
+  .header__input{
     height: 50px;
     width: 300px;
     font-size: 30px;
   }
-  h1{
+  .header__h1{
     font-size: 20px;
   }
-  .submenu{
+  .header__div_submenu{
     width: 100px;
   }
   .categories{
     width: 50px;
     margin-top: 40px;
   }
-  .categories > li{
+  .header__div_categories > li{
     width: 30px;
     margin-left: -30px;
     font-size: 18px;
@@ -70,15 +70,15 @@ input[type = "search"]{
 }
 
 @media screen and (max-width: 1000px){
-  input[type = "search"]{
+  .header__input{
     height: 50px;
     width: 200px;
     font-size: 30px;
   }
-  h1{
+  .header__h1{
     font-size: 20px;
   }
-  .submenu{
+  .header__div_submenu{
     width: 100px;
 
   }
@@ -86,7 +86,7 @@ input[type = "search"]{
     width: 50px;
     margin-top: 40px;
   }
-  .categories > li{
+  .header__div_categories > li{
     width: 30px;
     margin-left: -30px;
     font-size: 18px;
@@ -96,22 +96,22 @@ input[type = "search"]{
   header{
     width: 400px;
   }
-  input[type = "search"]{
+  .header__input{
     height: 50px;
     width: 100px;
     font-size: 30px;
   }
-  h1{
+  .header__h1{
     font-size: 15px;
   }
-  .submenu{
+  .header__div_submenu{
     width: 100px;
   }
   .categories{
     width: 20px;
     margin-top: 40px;
   }
-  .categories > li{
+  .header__div_categories > li{
     width: 20px;
     margin-left: -30px;
     font-size: 18px;

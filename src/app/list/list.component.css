@@ -2,7 +2,7 @@
 *{
   outline: none;
 }
-.gameBlock{
+.gamePage__div_list{
   display: -webkit-flex;
   display: flex;
   justify-content: center;
@@ -14,10 +14,37 @@
   margin: 10px;
   border-radius: 20px;
 }
+.gamePage{
+  display: -webkit-flex;
+  -ms-flex-direction: row;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1500px;
+  flex: 1;
+  -ms-flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  height: 350px;
+}
+.sortButton,.changeImg,.changeBack{
+  display: flex;
+  margin-left: 70px;
+}
+.component__button{
+  margin: 20px;
+  border-radius: 15px;
+  color: #1f071f;
+  font-size: 20px;
+  background: #cad9e3;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
 h2,p{
   margin: 2px;
 }
-img{
+.gamePage__img{
   margin-top: 10px;
 }
 .normal{
@@ -42,35 +69,9 @@ img{
 .white{
   background: white;
 }
-.gamePage{
-  display: -webkit-flex;
-  -ms-flex-direction: row;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  max-width: 1500px;
-  flex: 1;
-  -ms-flex-wrap: wrap;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  height: 350px;
-}
-.sortButton,.changeImg,.changeBack{
-  display: flex;
-  margin-left: 70px;
-}
-button{
-  margin: 20px;
-  border-radius: 15px;
-  color: #1f071f;
-  font-size: 20px;
-  background: #cad9e3;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
+
 @media screen and (max-width: 1200px){
-  .gameBlock{
+  .gamePage__div_list{
     width: 200px;
     height: 200px;
   }

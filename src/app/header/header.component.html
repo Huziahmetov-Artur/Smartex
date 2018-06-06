@@ -1,20 +1,20 @@
-<header >
+<header>
   <img src="https://www.ixbt.com/short/images/2017/Sep/google_play_logo_2015-630x247.png"
-       routerLink="">
-  <input type="search" [(ngModel)]="valueFromInputSearch" (change)="search()">
-  <div class="submenu">
-    <h1> Categories</h1>
-    <ul class="categories">
+       routerLink="" class="header__img">
+  <input type="search" [(ngModel)]="valueFromInputSearch" (change)="search()" class="header__input">
+  <div class="header__div_submenu">
+    <h1 class="header__h1"> Categories</h1>
+    <ul class="header__div_categories">
       <li class="Action" routerLink="type/action">Action</li>
       <li class="Music" routerLink="type/music">Music</li>
       <li class="Strategy" routerLink="type/strategy">Strategy</li>
       <li class="Adventure" routerLink="type/adventure">Adventure</li>
     </ul>
   </div>
-  <div *ngIf="userInformation.id">
-    <img src="{{userInformation.picture.data.url}}" alt="123" routerLink="user">
-    <button (click)="logout()">Logout</button>
+  <div *ngIf="userInformation.id" class="header__div_list">
+    <img src="{{userInformation.picture.data.url}}" alt="header__img" routerLink="user" class="header__img">
+    <button (click)="logout()" class="header__button">Logout</button>
   </div>
-  <button (click)="login()" *ngIf="!userInformation.id">Login</button>
+  <button (click)="login()" *ngIf="!userInformation.id" class="header__button">Login</button>
 </header>
 

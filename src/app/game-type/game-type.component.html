@@ -1,25 +1,25 @@
 <div class="sortButton">
   <h1>Sort by :</h1>
-  <button (click)="sortMas('app_name')">Name</button>
-  <button (click)="sortMas('all_rating')">Rating</button>
-  <button (click)="sortMas('file_size')">Size</button>
-  <button (click)="sortMas('version')">Version</button>
+  <button (click)="sortMas('app_name')" class="component__button">Name</button>
+  <button (click)="sortMas('all_rating')" class="component__button">Rating</button>
+  <button (click)="sortMas('file_size')" class="component__button">Size</button>
+  <button (click)="sortMas('version')" class="component__button">Version</button>
 </div>
 <div class="changeImg" >
   <h1>Size(admin mode):</h1>
-  <button (click)="changeSizeImg('small')"  [disabled]="!admin.admin">Small</button>
-  <button (click)="changeSizeImg('normal')" [disabled]="!admin.admin">Normal</button>
-  <button (click)="changeSizeImg('big')" [disabled]="!admin.admin">Big</button>
+  <button (click)="changeSizeImg('small')"  [disabled]="!admin.admin" class="component__button">Small</button>
+  <button (click)="changeSizeImg('normal')" [disabled]="!admin.admin" class="component__button">Normal</button>
+  <button (click)="changeSizeImg('big')" [disabled]="!admin.admin" class="component__button">Big</button>
 </div>
 <div class="changeBack">
   <h1>Color(admin mode):</h1>
-  <button (click)="changeBackImg('white')" [disabled]="!admin.admin">White</button>
-  <button (click)="changeBackImg('blue')" [disabled]="!admin.admin">Blue</button>
-  <button (click)="changeBackImg('purple')" [disabled]="!admin.admin">Perple</button>
+  <button (click)="changeBackImg('white')" [disabled]="!admin.admin" class="component__button">White</button>
+  <button (click)="changeBackImg('blue')" [disabled]="!admin.admin" class="component__button">Blue</button>
+  <button (click)="changeBackImg('purple')" [disabled]="!admin.admin" class="component__button">Perple</button>
 </div>
 <div class="gamePage">
-  <div *ngFor="let App of filteredListOfApplications" class="gameBlock {{imgBackground}}" routerLink="/game/{{App.app_short | lowercase }}">
-    <img src="{{App.url}}" class="{{sizeImg}}">
+  <div *ngFor="let App of filteredListOfApplications" class="gamePage__div_list {{imgBackground}}" routerLink="/game/{{App.app_short | lowercase }}">
+    <img src="{{App.url}}" class="gamePage__img {{sizeImg}}">
     <h2>{{App.app_name}}</h2>
     <p>✩ {{App.all_rating}}</p>
   </div>
