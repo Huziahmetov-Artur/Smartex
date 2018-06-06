@@ -9,23 +9,22 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class AppPageComponent implements OnInit {
 
-  id: number;
-  variable;
-  oneGame;
-  subscription;
+  paramsId: number;
+  oneApp; //the right app
+
   constructor(private activateRoute: ActivatedRoute,public GetService : GetService) {
-    this.subscription = this.activateRoute.params.subscribe(params=> {
-      this.id=params['id'];
+    // get params for search the app
+    this.activateRoute.params.subscribe(params => {
+      this.paramsId = params['id'];
     });
   }
   ngOnInit() {
     this.refresh();
   }
   refresh() {
+    //get list of applications and search the right app
     this.GetService.getApi().subscribe(res => {
-      this.variable = res;
-      console.log('refresh');
-      this.oneGame = this.variable.filter(a => a.app_short.toLowerCase().indexOf(this.id) >= 0)[0];
+      this.oneApp = res.filter(a => a.app_short.toLowerCase().indexOf(this.paramsId) >= 0)[0];
     });
 
   }

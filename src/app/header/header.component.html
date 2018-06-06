@@ -1,7 +1,7 @@
 <header >
   <img src="https://www.ixbt.com/short/images/2017/Sep/google_play_logo_2015-630x247.png"
        routerLink="">
-  <input type="search" [(ngModel)]="searchVar" (change)="search()">
+  <input type="search" [(ngModel)]="valueFromInputSearch" (change)="search()">
   <div class="submenu">
     <h1> Categories</h1>
     <ul class="categories">
@@ -11,10 +11,10 @@
       <li class="Adventure" routerLink="type/adventure">Adventure</li>
     </ul>
   </div>
-  <div *ngIf="user.id">
-    <img src="{{user.picture.data.url}}" alt="123" routerLink="user">
+  <div *ngIf="userInformation.id">
+    <img src="{{userInformation.picture.data.url}}" alt="123" routerLink="user">
     <button (click)="logout()">Logout</button>
   </div>
-  <button (click)="login()" *ngIf="!user.id">Login</button>
+  <button (click)="login()" *ngIf="!userInformation.id">Login</button>
 </header>
 

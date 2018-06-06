@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {listOfApp, userInfo} from "../store/ListMas";
-import {GetService} from "../service/get.service";
+import {listOfApp, userInfo} from '../store/ListMas';
+import {GetService} from '../service/get.service';
 
 @Component({
   selector: 'app-list',
@@ -9,21 +9,22 @@ import {GetService} from "../service/get.service";
 })
 export class ListComponent implements OnInit {
 
-  app = listOfApp;
+  listOfApplication = listOfApp;
   sizeImg = 'normal';
   admin = userInfo;
   imgBackground = 'white'
-  constructor(public GetService : GetService) { }
+  constructor(public getService: GetService) { }
 
   ngOnInit() {
+
   }
-  changeSizeImg(size){
+  changeSizeImg(size) {
   this.sizeImg = size;
   }
-  changeBackImg(color){
+  changeBackImg(color) {
     this.imgBackground = color;
   }
-  change(type) {
-    this.GetService.sortMas(listOfApp, type )
+  sortMas(type) {
+    this.getService.sortMas(listOfApp, type );
   }
 }

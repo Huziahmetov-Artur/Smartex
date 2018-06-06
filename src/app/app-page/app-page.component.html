@@ -1,19 +1,18 @@
-<div class="oneApp" *ngIf="oneGame">
-  <img src="{{oneGame.url}}">
-  <h1>{{oneGame.app_name}}</h1>
+<div class="oneApp" *ngIf="oneApp">
+  <img src="{{oneApp.url}}">
+  <h1>{{oneApp.app_name}}</h1>
   <div>
-    <p>Size : {{oneGame.file_size}}</p>
-    <p>✩ {{oneGame.all_rating}}</p>
-    <p>Type : {{oneGame.app_type | uppercase }}</p>
-    <p>Downloads : {{oneGame.downloads}}</p>
-    <p>Price : {{oneGame.price}}</p>
-    <p>Version : {{oneGame.version}}</p>
+    <p>Size : {{oneApp.file_size}}</p>
+    <p>✩ {{oneApp.all_rating}}</p>
+    <p>Type : {{oneApp.app_type | uppercase }}</p>
+    <p>Downloads : {{oneApp.downloads}}</p>
+    <p>Price : {{oneApp.price}}</p>
+    <p>Version : {{oneApp.version}}</p>
   </div>
   <div>
     Permissions:
-    <div *ngFor="let st of oneGame.permissions">
-      <li>{{st}}</li>
+    <div *ngFor="let permissions of oneApp.permissions">
+      <li>{{permissions}}</li>
     </div>
   </div>
-  <button>Download</button>
 </div>

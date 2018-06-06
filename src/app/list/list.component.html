@@ -1,25 +1,25 @@
 <div class="sortButton">
   <h1>Sort by :</h1>
-  <button (click)="change('app_name')">Name</button>
-  <button (click)="change('all_rating')">Rating</button>
-  <button (click)="change('all_type')">Type</button>
-  <button (click)="change('file_size')">Size</button>
-  <button (click)="change('version')">Version</button>
+  <button (click)="sortMas('app_name')">Name</button>
+  <button (click)="sortMas('all_rating')">Rating</button>
+  <button (click)="sortMas('all_type')">Type</button>
+  <button (click)="sortMas('file_size')">Size</button>
+  <button (click)="sortMas('version')">Version</button>
 </div>
-<div class="changeImg" *ngIf="admin.admin">
-  <h1>Size:</h1>
-  <button (click)="changeSizeImg('small')">Small</button>
-  <button (click)="changeSizeImg('normal')">Normal</button>
-  <button (click)="changeSizeImg('big')">Big</button>
+<div class="changeImg" >
+  <h1>Size(admin mode):</h1>
+  <button (click)="changeSizeImg('small')"  [disabled]="!admin.admin">Small</button>
+  <button (click)="changeSizeImg('normal')" [disabled]="!admin.admin">Normal</button>
+  <button (click)="changeSizeImg('big')" [disabled]="!admin.admin">Big</button>
 </div>
-<div class="changeBack" *ngIf="admin.admin">
-  <h1>Size:</h1>
-  <button (click)="changeBackImg('white')">White</button>
-  <button (click)="changeBackImg('blue')">Blue</button>
-  <button (click)="changeBackImg('purple')">Perple</button>
+<div class="changeBack">
+  <h1>Color(admin mode):</h1>
+  <button (click)="changeBackImg('white')" [disabled]="!admin.admin">White</button>
+  <button (click)="changeBackImg('blue')" [disabled]="!admin.admin">Blue</button>
+  <button (click)="changeBackImg('purple')" [disabled]="!admin.admin">Perple</button>
 </div>
 <div class="gamePage">
-  <div *ngFor="let App of app" class="gameBlock {{imgBackground}}" routerLink="game/{{App.app_short | lowercase }}">
+  <div *ngFor="let App of listOfApplication" class="gamePage_div gameBlock {{imgBackground}}" routerLink="game/{{App.app_short | lowercase }}">
     <img src="{{App.url}}" class="{{sizeImg}}">
     <h2>{{App.app_name}}</h2>
     <p>✩ {{App.all_rating}}</p>

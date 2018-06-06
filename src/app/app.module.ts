@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ListComponent } from './list/list.component';
@@ -11,6 +10,7 @@ import { AppPageComponent } from './app-page/app-page.component';
 import {FormsModule} from "@angular/forms";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UserAccountComponent } from './user-account/user-account.component';
+
 
 @NgModule({
   declarations: [
