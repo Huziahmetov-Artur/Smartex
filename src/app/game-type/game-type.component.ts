@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { InfoService} from '../service/get.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {listOfApp, userInfo} from '../store/ListMas';
+import { userInfo} from '../store/ListMas';
+import {AuthService} from '../service/auth.service';
 
 @Component({
   selector: 'app-game-type',
@@ -11,10 +12,11 @@ import {listOfApp, userInfo} from '../store/ListMas';
 export class GameTypeComponent implements OnInit {
 
   filteredListOfApplications: any[];
+  ListOfApplications: any[];
   paramsId: number;
   paramsType: string;
   sizeImg = 'normal';
-  user = userInfo;
+  user: any;
   imgBackground = 'white';
   sortEnum = {
     NAME : 'app_name',
@@ -33,28 +35,31 @@ export class GameTypeComponent implements OnInit {
     PURPLE: 'purple'
   };
 
-  constructor(public infoService: InfoService, private activateRoute: ActivatedRoute, private router: Router) {
+  constructor(public infoService: InfoService, private activateRoute: ActivatedRoute, private router: Router, public Auth: AuthService) {
     // get params for filter the application list
     this.activateRoute.params.subscribe(params => {
       this.paramsId = params['id'];
       this.paramsType = params['type'];
-      this.filteredListOfApplications = listOfApp.filter(a => a[this.paramsType] && a[this.paramsType].toLowerCase().indexOf(this.paramsId) >= 0);
+      this.filteredListOfApplications = this.ListOfApplications && this.ListOfApplications.filter(a => a[this.paramsType] && a[this.paramsType].toLowerCase().indexOf(this.paramsId) >= 0);
     });
+
   }
 
   ngOnInit() {
     //// get the list of apps from info.json
     this.refresh();
+    this.Auth.getUserInfo().subscribe(data => this.user = data);
+
   }
   refresh() {
-    this.infoService.getApi().subscribe(res => {
-      this.filteredListOfApplications = listOfApp.filter(a => a[this.paramsType] && a[this.paramsType].toLowerCase().indexOf(this.paramsId) >= 0);
-      // if no app go to the NotFoundComponent
-      if ( this.filteredListOfApplications[0] ) {
-      }
-      else
-      {
-        this.router.navigate([`/noapp`]);
+    this.infoService.getAll().subscribe(data => {
+      this.ListOfApplications = data;
+      this.filteredListOfApplications = data.filter(a => a[this.paramsType] && a[this.paramsType].toLowerCase().indexOf(this.paramsId) >= 0);
+      console.log(this.filteredListOfApplications);
+      if (this.filteredListOfApplications && this.filteredListOfApplications[0]) {
+        this.router.navigate([`/type/${this.paramsId}`]);
+      } else {
+        this.router.navigate(['/noapp']);
       }
     });
   }

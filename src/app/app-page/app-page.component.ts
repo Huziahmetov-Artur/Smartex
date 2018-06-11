@@ -21,9 +21,9 @@ export class AppPageComponent implements OnInit {
     this.refresh();
   }
   refresh() {
-    this.infoService.getApi().subscribe(res => {
-      this.oneApp = res.filter(a => a.app_short && a.app_short.toLowerCase().indexOf(this.paramsId) >= 0)[0];
-    });
+    this.infoService.getAll().subscribe(data => {
+      this.oneApp = data.filter(a => a.app_short && a.app_short.toLowerCase().indexOf(this.paramsId) >= 0)[0];
 
+    });
   }
 }

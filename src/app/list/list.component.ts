@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {listOfApp, userInfo} from '../store/ListMas';
+import { userInfo} from '../store/ListMas';
 import { InfoService} from '../service/get.service';
+import {AuthService} from '../service/auth.service';
 
 @Component({
   selector: 'app-list',
@@ -9,7 +10,7 @@ import { InfoService} from '../service/get.service';
 })
 export class ListComponent implements OnInit {
 
-  listOfApplication = listOfApp;
+  listOfApplication: any[];
   sizeImg = 'normal';
   user = userInfo;
   imgBackground = 'white';
@@ -29,10 +30,11 @@ export class ListComponent implements OnInit {
     BLUE: 'blue',
     PURPLE: 'purple'
   };
-  constructor(public infoService : InfoService) { }
+  constructor(public infoService: InfoService, public Auth: AuthService) { }
 
   ngOnInit() {
-
+    this.infoService.getAll().subscribe(data => this.listOfApplication = data);
+    this.Auth.getUserInfo().subscribe(data => this.user = data);
   }
   changeSizeImg(size) {
   this.sizeImg = size;
@@ -41,6 +43,6 @@ export class ListComponent implements OnInit {
     this.imgBackground = color;
   }
   sortArray(type) {
-    this.infoService.sortMas(listOfApp, type );
+    this.infoService.sortMas(this.listOfApplication, type );
   }
 }
