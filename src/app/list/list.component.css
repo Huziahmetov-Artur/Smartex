@@ -1,9 +1,7 @@
-
 *{
   outline: none;
 }
-.gamePage__div_list{
-  display: -webkit-flex;
+.gameBlock{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,37 +12,10 @@
   margin: 10px;
   border-radius: 20px;
 }
-.gamePage{
-  display: -webkit-flex;
-  -ms-flex-direction: row;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  max-width: 1500px;
-  flex: 1;
-  -ms-flex-wrap: wrap;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  height: 350px;
-}
-.sortButton,.changeImg,.changeBack{
-  display: flex;
-  margin-left: 70px;
-}
-.component__button{
-  margin: 20px;
-  border-radius: 15px;
-  color: #1f071f;
-  font-size: 20px;
-  background: #cad9e3;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
 h2,p{
   margin: 2px;
 }
-.gamePage__img{
+img{
   margin-top: 10px;
 }
 .normal{
@@ -69,65 +40,22 @@ h2,p{
 .white{
   background: white;
 }
-
-@media screen and (max-width: 1200px){
-  .gamePage__div_list{
-    width: 200px;
-    height: 200px;
-  }
-  .normal{
-    height: 150px;
-    width: 150px;
-    border-radius: 10px;
-  }
-  .small{
-    height: 100px;
-    width: 100px;
-  }
-  .big{
-    height: 170px;
-    width: 170px;
-  }
-  h1{
-    display: none;
-  }
-  .gamePage{
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    height: 320px;
-  }
-  .sortButton,.changeImg,.changeBack{
-    width: 70%;
-  }
-  button{
-    width: 70%;
-    font-size: 15px;
-  }
+.gamePage{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  height: 350px;
 }
-
-@media screen and (max-width: 710px){
-  .sortButton,.changeImg,.changeBack{
-    width: 50%;
-  }
-  h1{
-    display: none;
-  }
-  button{
-    margin: 15px;
-    width: 70%;
-    font-size: 10px;
-  }
+.sortButton,.changeImg,.changeBack{
+  display: flex;
+  margin-left: 70px;
 }
-
-@media screen and (max-width: 610px){
-  .sortButton,.changeImg,.changeBack{
-    width: 50%;
-  }
-  h1{
-    display: none;
-  }
-  button{
-    margin: 5px;
-  }
+button{
+  margin: 20px;
+  border-radius: 15px;
+  color: #1f071f;
+  font-size: 20px;
+  background: #cad9e3;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
 }

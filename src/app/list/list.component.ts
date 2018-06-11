@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {listOfApp, userInfo} from '../store/ListMas';
-import {GetService} from '../service/get.service';
+import { InfoService} from '../service/get.service';
 
 @Component({
   selector: 'app-list',
@@ -11,9 +11,25 @@ export class ListComponent implements OnInit {
 
   listOfApplication = listOfApp;
   sizeImg = 'normal';
-  admin = userInfo;
-  imgBackground = 'white'
-  constructor(public getService: GetService) { }
+  user = userInfo;
+  imgBackground = 'white';
+  sortEnum = {
+    NAME : 'app_name',
+    RATING: 'all_rating',
+    SIZE: 'file_size',
+    VERSION: 'version'
+  };
+  sizeEnum = {
+    SMALL: 'small',
+    NORMAL: 'normal',
+    BIG: 'big'
+  };
+  colorEnum = {
+    WHITE: 'white',
+    BLUE: 'blue',
+    PURPLE: 'purple'
+  };
+  constructor(public infoService : InfoService) { }
 
   ngOnInit() {
 
@@ -24,7 +40,7 @@ export class ListComponent implements OnInit {
   changeBackImg(color) {
     this.imgBackground = color;
   }
-  sortMas(type) {
-    this.getService.sortMas(listOfApp, type );
+  sortArray(type) {
+    this.infoService.sortMas(listOfApp, type );
   }
 }

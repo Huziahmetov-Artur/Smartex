@@ -5,11 +5,10 @@ import {Observable} from 'rxjs/internal/Observable';
 @Injectable({
   providedIn: 'root'
 })
-export class GetService {
+export class InfoService {
 
   constructor(private http: HttpClient) { }
   getApi(): Observable<any[]> {
-    // get data from info.json
     return this.http.get<any[]>('./assets/info.json');
   }
   sortMas(mas, typee ) {

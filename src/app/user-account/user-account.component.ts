@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {userInfo} from "../store/ListMas";
+import {userInfo} from '../store/ListMas';
 
 @Component({
   selector: 'app-user-account',

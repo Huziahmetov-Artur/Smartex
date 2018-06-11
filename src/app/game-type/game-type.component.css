@@ -1,4 +1,4 @@
-.gamePage__div_list{
+.gameBlock{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,7 @@
 h2,p{
   margin: 2px;
 }
-.gamePage__img {
+img{
   margin-top: 10px;
   height: 150px;
   width: 150px;
@@ -28,7 +28,7 @@ h2,p{
   display: flex;
   margin-left: 70px;
 }
-.component__button{
+button{
   margin: 20px;
   border-radius: 15px;
   color: #1f071f;

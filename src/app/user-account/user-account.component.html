@@ -1,7 +1,7 @@
 <div class="modalWindow">
   <div>
     <a class="close" routerLink="">X</a>
-    <img src="{{user.picture.data.url}}" alt="123">
+    <img src="{{user.picture?.data.url}}" alt="123">
     <p>{{user.name}}</p>
     <p>You ID : {{user.id}}</p>
     <p *ngIf="user.admin">You are ADMIN</p>
