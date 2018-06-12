@@ -1,17 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import {userInfo} from '../store/ListMas';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {User} from '../interface/Interface';
+import {AuthService} from '../service/auth.service';
 
 @Component({
   selector: 'app-user-account',
   templateUrl: './user-account.component.html',
   styleUrls: ['./user-account.component.css']
 })
-export class UserAccountComponent implements OnInit {
+export class UserAccountComponent implements OnInit, OnDestroy {
 
-  user = localStorage.user  ? JSON.parse(localStorage.user) : userInfo;
-  constructor() { }
+  user: User;
+  subscriptionToAythService: any;
+  constructor(public Auth: AuthService) {
+  }
 
   ngOnInit() {
+    this.subscriptionToAythService = this.Auth.getUserInfo().subscribe(data => this.user = data);
+  }
+  ngOnDestroy() {
+    this.subscriptionToAythService.unsubscribe();
   }
 
 }

@@ -1,48 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { userInfo} from '../store/ListMas';
 import { InfoService} from '../service/get.service';
-import {AuthService} from '../service/auth.service';
+import { OnDestroy } from "@angular/core";
+import {App} from '../interface/Interface';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy {
 
-  listOfApplication: any[];
+  listOfApplication: App[];
   sizeImg = 'normal';
-  user = userInfo;
   imgBackground = 'white';
-  sortEnum = {
-    NAME : 'app_name',
-    RATING: 'all_rating',
-    SIZE: 'file_size',
-    VERSION: 'version'
-  };
-  sizeEnum = {
-    SMALL: 'small',
-    NORMAL: 'normal',
-    BIG: 'big'
-  };
-  colorEnum = {
-    WHITE: 'white',
-    BLUE: 'blue',
-    PURPLE: 'purple'
-  };
-  constructor(public infoService: InfoService, public Auth: AuthService) { }
+  subscriptionToInfoService: any;
+  constructor(public infoService: InfoService) {
+  }
 
   ngOnInit() {
-    this.infoService.getAll().subscribe(data => this.listOfApplication = data);
-    this.Auth.getUserInfo().subscribe(data => this.user = data);
+    this.subscriptionToInfoService = this.infoService.getAll().subscribe(data => {
+      this.listOfApplication = data;
+    });
   }
-  changeSizeImg(size) {
-  this.sizeImg = size;
+  ngOnDestroy() {
+    this.subscriptionToInfoService.unsubscribe();
   }
-  changeBackImg(color) {
-    this.imgBackground = color;
+
+  changeStyles(params) {
+    this.imgBackground = params['color'];
+    this.sizeImg = params['size'];
   }
-  sortArray(type) {
-    this.infoService.sortMas(this.listOfApplication, type );
+  Sort(type) {
+    this.infoService.sortArray(this.listOfApplication, type );
   }
 }

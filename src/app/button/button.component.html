@@ -1,0 +1,19 @@
+<div class="sortButton">
+  <h1>Sort by :</h1>
+  <button (click)="sortArray(sortParams.NAME)">Name</button>
+  <button (click)="sortArray(sortParams.RATING)">Rating</button>
+  <button (click)="sortArray(sortParams.SIZE)">Size</button>
+  <button (click)="sortArray(sortParams.VERSION)">Version</button>
+</div>
+<div class="changeImg" *ngIf="admin">
+  <h1>Size:</h1>
+  <button (click)="changeSizeImg(sizeParams.SMALL)">Small</button>
+  <button (click)="changeSizeImg(sizeParams.NORMAL)">Normal</button>
+  <button (click)="changeSizeImg(sizeParams.BIG)">Big</button>
+</div>
+<div class="changeBack" *ngIf="admin">
+  <h1>Size:</h1>
+  <button (click)="changeBackImg(colorParams.WHITE)">White</button>
+  <button (click)="changeBackImg(colorParams.BLUE)">Blue</button>
+  <button (click)="changeBackImg(colorParams.PURPLE)">Perple</button>
+</div>

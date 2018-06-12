@@ -1,22 +1,4 @@
-<div class="sortButton">
-  <h1>Sort by :</h1>
-  <button (click)="sortArray(sortEnum.NAME)">Name</button>
-  <button (click)="sortArray(sortEnum.RATING)">Rating</button>
-  <button (click)="sortArray(sortEnum.SIZE)">Size</button>
-  <button (click)="sortArray(sortEnum.VERSION)">Version</button>
-</div>
-<div class="changeImg" *ngIf="user.admin">
-  <h1>Size:</h1>
-  <button (click)="changeSizeImg(sizeEnum.SMALL)">Small</button>
-  <button (click)="changeSizeImg(sizeEnum.NORMAL)">Normal</button>
-  <button (click)="changeSizeImg(sizeEnum.BIG)">Big</button>
-</div>
-<div class="changeBack" *ngIf="user.admin">
-  <h1>Size:</h1>
-  <button (click)="changeBackImg(colorEnum.WHITE)">White</button>
-  <button (click)="changeBackImg(colorEnum.BLUE)">Blue</button>
-  <button (click)="changeBackImg(colorEnum.PURPLE)">Perple</button>
-</div>
+<app-button (onChanged)="Sort($event)" (onClick)="changeStyles($event)"></app-button>
 <div class="gamePage">
   <div *ngFor="let App of listOfApplication" class="gameBlock {{imgBackground}}" routerLink="game/{{App.app_short | lowercase }}">
     <img src="{{App.url}}" class="{{sizeImg}}">

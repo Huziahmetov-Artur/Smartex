@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FacebookModule } from 'ngx-facebook';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ListComponent } from './list/list.component';
@@ -9,8 +10,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { GameTypeComponent } from './game-type/game-type.component';
 import { AppPageComponent } from './app-page/app-page.component';
 import {FormsModule} from "@angular/forms";
-import { NotFoundComponent } from './not-found/not-found.component';
 import { UserAccountComponent } from './user-account/user-account.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,15 @@ import { UserAccountComponent } from './user-account/user-account.component';
     ListComponent,
     GameTypeComponent,
     AppPageComponent,
-    NotFoundComponent,
-    UserAccountComponent
+    UserAccountComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    FacebookModule.forRoot()
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

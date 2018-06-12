@@ -9,26 +9,23 @@ import {BehaviorSubject} from 'rxjs';
 export class InfoService {
   private listOfApp: Observable<any[]>;
   private _listOfApp: BehaviorSubject<any[]>;
-  private dataStore: {
-    listOfApp: any[]
-  };
+
 
   constructor(private http: HttpClient) {
-    this.dataStore = { listOfApp : [] };
-    this._listOfApp = <BehaviorSubject<any[]>>new BehaviorSubject([]);
+    this._listOfApp = new BehaviorSubject([]);
     this.listOfApp = this._listOfApp.asObservable();
+    this.loadAll();
   }
 
   loadAll() {
     this.http.get<any[]>('./assets/info.json').subscribe(data => {
-      this.dataStore.listOfApp = data;
-      this._listOfApp.next(Object.assign({}, this.dataStore).listOfApp);
+      this._listOfApp.next(Object.assign([], data));
     });
   }
   getAll(): Observable<any[]> {
     return this.listOfApp;
   }
-  sortMas(mas, typee ) {
+  sortArray(mas, typee ) {
     mas.sort(function (a, b) {
       if (a[typee] > b[typee]) {
         return 1;
@@ -39,6 +36,4 @@ export class InfoService {
       return 0;
     });
   }
-
-
 }
