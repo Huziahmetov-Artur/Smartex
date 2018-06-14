@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {User} from '../interface/Interface';
-import {AuthService} from '../service/auth.service';
+import {User} from '../../shared/interface/Interface';
+import {AuthService} from '../../core/service/auth.service';
 
 @Component({
   selector: 'app-user-account',
@@ -10,15 +10,15 @@ import {AuthService} from '../service/auth.service';
 export class UserAccountComponent implements OnInit, OnDestroy {
 
   user: User;
-  subscriptionToAythService: any;
+  subscriptionToAuthService: any;
   constructor(public Auth: AuthService) {
   }
 
   ngOnInit() {
-    this.subscriptionToAythService = this.Auth.getUserInfo().subscribe(data => this.user = data);
+    this.subscriptionToAuthService = this.Auth.getUserInfo().subscribe(data => this.user = data);
   }
   ngOnDestroy() {
-    this.subscriptionToAythService.unsubscribe();
+    this.subscriptionToAuthService.unsubscribe();
   }
 
 }

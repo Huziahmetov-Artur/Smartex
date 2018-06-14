@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {AuthService} from '../service/auth.service';
+import {AuthService} from '../../core/service/auth.service';
 import {User} from '../interface/Interface';
 
 @Component({
@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor( private router: Router, public Auth: AuthService) {
     // if accessToken lifetime is end ask for login again
     Number(new Date().getTime() / 1000) - localStorage.create_time > localStorage.token_life_time ?
-      this.Auth.loginn() : 0 ;
+      this.Auth.login() : 0 ;
     // if there is token in  localStorage get user information by accessToken
     localStorage.token ? this.Auth.infoByToken(0) : 0;
   }
@@ -32,11 +32,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
   search() {
     this.valueFromInputSearch = this.valueFromInputSearch.replace(/\s/g,'').toLowerCase();
-    this.router.navigate([`/app_name/${this.valueFromInputSearch}`]);
+    this.router.navigate([`game/app_name/${this.valueFromInputSearch}`]);
     this.valueFromInputSearch = '';
   }
   login() {
-    this.Auth.loginn();
+    this.Auth.login();
   }
   logout() {
       localStorage.clear();

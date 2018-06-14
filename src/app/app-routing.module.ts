@@ -1,17 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListComponent} from "./list/list.component";
-import {GameTypeComponent} from "./game-type/game-type.component";
-import {AppPageComponent} from "./app-page/app-page.component";
-import {UserAccountComponent} from "./user-account/user-account.component";
 
 
-const routes : Routes = [
-  {path : '', component : ListComponent},
-  {path : 'game/:id', component : AppPageComponent},
-  {path : 'user', pathMatch: 'full', component : UserAccountComponent},
-  {path : ':type/:id', pathMatch: 'full', component : GameTypeComponent}
 
+const routes: Routes = [
+  {path : '', loadChildren : './dashboard/dashboard.module#DashboardModule'},
+  {path : 'user', loadChildren : './account/account.module#AccountModule'}
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

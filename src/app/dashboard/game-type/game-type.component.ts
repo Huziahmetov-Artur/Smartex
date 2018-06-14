@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { InfoService} from '../service/get.service';
+import { InfoService} from '../../core/service/info.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AuthService} from '../service/auth.service';
-import {App} from '../interface/Interface';
+import {AuthService} from '../../core/service/auth.service';
+import {App} from '../../shared/interface/Interface';
 
 @Component({
   selector: 'app-game-type',
@@ -25,6 +25,7 @@ export class GameTypeComponent implements OnInit, OnDestroy {
     this.subscriptionToParams = this.activateRoute.params.subscribe(params => {
       this.paramsId = params['id'];
       this.paramsType = params['type'];
+      // filter
       this.filteredListOfApplications = this.ListOfApplications && this.ListOfApplications.filter(a => a[this.paramsType] && a[this.paramsType].toLowerCase().indexOf(this.paramsId) >= 0);
     });
 

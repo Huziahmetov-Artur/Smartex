@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { InfoService} from '../service/get.service';
+import { InfoService} from '../../core/service/info.service';
 import { OnDestroy } from "@angular/core";
-import {App} from '../interface/Interface';
+import {App} from '../../shared/interface/Interface';
 
 @Component({
   selector: 'app-list',
@@ -18,6 +18,7 @@ export class ListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    console.log('here');
     this.subscriptionToInfoService = this.infoService.getAll().subscribe(data => {
       this.listOfApplication = data;
     });

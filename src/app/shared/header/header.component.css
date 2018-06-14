@@ -24,27 +24,7 @@ input[type = "search"]{
   width: 700px;
   font-size: 30px;
 }
-.submenu{
-  width: 200px;
-  display: flex;
-  justify-content: center;
-}
-.categories{
-  display: none;
-  position: absolute;
-  width: 150px;
-  margin-top: 60px;
-  border-radius: 20px;
-}
-.categories > li{
-  width: 50px;
-  font-size: 20px;
-  list-style-type: none;
-}
-.submenu:hover > .categories{
-  display: block;
-  background: white;
-}
+
 
 @media screen and (max-width: 1200px){
   input[type = "search"]{

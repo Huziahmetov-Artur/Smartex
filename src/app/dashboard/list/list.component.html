@@ -1,4 +1,13 @@
 <app-button (onChanged)="Sort($event)" (onClick)="changeStyles($event)"></app-button>
+<div class="submenu">
+  <h1> Categories</h1>
+  <ul class="categories">
+    <li class="Action" routerLink="game/type/action">Action</li>
+    <li class="Music" routerLink="game/type/music">Music</li>
+    <li class="Strategy" routerLink="game/type/strategy">Strategy</li>
+    <li class="Adventure" routerLink="game/type/adventure">Adventure</li>
+  </ul>
+</div>
 <div class="gamePage">
   <div *ngFor="let App of listOfApplication" class="gameBlock {{imgBackground}}" routerLink="game/{{App.app_short | lowercase }}">
     <img src="{{App.url}}" class="{{sizeImg}}">

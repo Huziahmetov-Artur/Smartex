@@ -2,14 +2,12 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/internal/Observable";
 import {BehaviorSubject} from 'rxjs';
-import {User} from '../interface/Interface';
+import {User} from '../../shared/interface/Interface';
 import {FacebookService, InitParams, LoginResponse} from 'ngx-facebook';
 
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
   private userInfo: Observable<User>;
   private _userInfo: BehaviorSubject<User>;
@@ -27,7 +25,7 @@ export class AuthService {
 
   }
 
-  loginn()  {
+  login()  {
     // sets the state of Facebook SDK
     const initParams: InitParams = {
       appId: '344244819437894',

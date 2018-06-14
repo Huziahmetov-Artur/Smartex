@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { InfoService} from '../service/get.service';
+import { InfoService} from '../../core/service/info.service';
 import {ActivatedRoute} from '@angular/router';
-import {User} from '../interface/Interface';
+import {User} from '../../shared/interface/Interface';
 
 @Component({
   selector: 'app-app-page',

@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { EventEmitter, Output} from '@angular/core';
-import {AuthService} from '../service/auth.service';
-import {color, size, sort} from '../interface/Interface';
+import {AuthService} from '../../core/service/auth.service';
+import {color, size, sort} from '../../shared/interface/Interface';
 
 
 @Component({
@@ -34,6 +34,7 @@ export class ButtonComponent implements OnInit, OnDestroy {
   @Output() onClick = new EventEmitter<any>();
 
   constructor( public Auth: AuthService) {
+    // object contains the styles
     this.params = {
       'color' : this.colorParams.WHITE,
       'size' : this.sizeParams.NORMAL
@@ -42,6 +43,7 @@ export class ButtonComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscriptionToAuthService = this.Auth.getUserInfo().subscribe(data => {
+      // check for admin
       this.admin = data.admin;
     });
   }
@@ -49,13 +51,16 @@ export class ButtonComponent implements OnInit, OnDestroy {
     this.subscriptionToAuthService.unsubscribe();
   }
   sortArray(type) {
+    // returns to the parent component type of sort
     this.onChanged.emit(type);
   }
   changeSizeImg(sizeBlock) {
+    // returns to the parent component styles
     this.params['size'] = sizeBlock;
     this.onClick.emit(this.params);
   }
   changeBackImg(colorBlock) {
+    // returns to the parent component styles
     this.params['color'] = colorBlock;
     this.onClick.emit(this.params);
   }
